@@ -2,3 +2,5 @@ db.sqlite3
 venv
 __pycache__
 readme.txt
+node_modules
+staticfiles
