@@ -4,3 +4,4 @@ __pycache__
 readme.txt
 node_modules
 staticfiles
+.env

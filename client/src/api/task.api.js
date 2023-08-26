@@ -1,8 +1,12 @@
-const BASE_URL = "http://localhost:8000/tasks/api/v1/";
+const BASE_URL =
+  process.env.NODE_ENV == "production"
+    ? import.meta.env.VITE_BACKEND_URL
+    : "http://localhost:8000";
+
 import axios from "axios";
 
 const tasksApi = axios.create({
-  baseURL: BASE_URL,
+  baseURL: BASE_URL + "/tasks/api/v1/",
 });
 
 function getAllTasks() {

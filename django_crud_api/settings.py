@@ -27,19 +27,24 @@ SECRET_KEY = "django-insecure-99q^5=-ac78)kj03xcitfi05et-z0hq7jdq1^(s8d866#$g8y#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "django-react-production-1b55.up.railway.app"]
+ALLOWED_HOSTS = [
+    # "198.211.99.20",
+    "localhost",
+    "127.0.0.1",
+    "django-react-production-1b55.up.railway.app",
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "corsheaders",
     "rest_framework",
     "coreapi",
     "tasks",
@@ -62,7 +67,7 @@ ROOT_URLCONF = "django_crud_api.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "client", "dist")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -81,7 +86,11 @@ WSGI_APPLICATION = "django_crud_api.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {"default": dj_database_url.config(default="sqlite://db.sqlite3")}
+DATABASES = {
+    "default": dj_database_url.config(
+        default="sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
+    )
+}
 
 
 # Password validation
@@ -120,13 +129,14 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "client", "dist")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # cors authorization
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:8000"]
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
