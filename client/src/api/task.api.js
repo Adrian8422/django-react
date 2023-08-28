@@ -4,14 +4,17 @@ const BASE_URL =
     : "http://localhost:8000";
 
 import axios from "axios";
+const csrfToken = document.cookie;
+let cokieToken = csrfToken.split(" csrftoken=")[1];
 
 const tasksApi = axios.create({
   baseURL: BASE_URL + "/tasks/api/v1/",
+  headers: {
+    "X-CSRFToken": cokieToken,
+  },
 });
 
 function getAllTasks() {
-  console.log("url", BASE_URL);
-
   return tasksApi.get("tasks/");
 }
 
