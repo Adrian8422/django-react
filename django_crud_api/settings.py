@@ -139,7 +139,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:8000",
-    "https://django-react-production-1b55.up.railway.app/",
+    "https://django-react-production-1b55.up.railway.app",
 ]
 
 REST_FRAMEWORK = {
