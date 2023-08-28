@@ -1,6 +1,6 @@
 const BASE_URL =
   process.env.NODE_ENV == "production"
-    ? import.meta.env.VITE_BACKEND_URL
+    ? "https://django-react-production-1b55.up.railway.app"
     : "http://localhost:8000";
 
 import axios from "axios";
