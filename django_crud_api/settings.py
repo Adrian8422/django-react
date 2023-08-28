@@ -146,5 +146,5 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CSRF_TRUSTED_ORIGINS = [
     "http://*",
-    "https://django-react-production-1b55.up.railway.app",
+    "https://django-react-production-1b55.up.railway.app/*",
 ]
