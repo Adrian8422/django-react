@@ -136,7 +136,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "client", "dist")]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # cors authorization
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:8000"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:8000",
+    "https://django-react-production-1b55.up.railway.app/",
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
@@ -146,5 +150,5 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CSRF_TRUSTED_ORIGINS = [
     "http://*",
-    "https://django-react-production-1b55.up.railway.app/*",
+    "https://django-react-production-1b55.up.railway.app",
 ]
